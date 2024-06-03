@@ -1,0 +1,23 @@
+.imageGrid {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   justify-content: center;
+}
+
+.image-item {
+   /* overflow: hidden; */
+   
+}
+
+.imageItem img {
+   display: block;
+   width: 100%;
+   height: auto;
+   position: relative;
+}
+.download{
+/* position: absolute; */
+bottom: 1rem;
+right: 1rem;
+}
