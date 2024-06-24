@@ -5,10 +5,6 @@
    justify-content: center;
 }
 
-.image-item {
-   /* overflow: hidden; */
-   
-}
 
 .imageItem img {
    display: block;
@@ -17,7 +13,6 @@
    position: relative;
 }
 .download{
-/* position: absolute; */
 bottom: 1rem;
 right: 1rem;
 }

@@ -6,7 +6,7 @@ const SearchBar = () => {
    const {setSearch} = useImage();     
 
    return (
-      <form className={styles.searchBar} >
+      <div className={styles.searchBar} >
          <input
             type="text"
             placeholder="Search..."
@@ -16,7 +16,7 @@ const SearchBar = () => {
          <button type="submit" className={styles.button}>
             <FaSearch />
          </button>
-      </form>
+      </div>
    );
 };
 
