@@ -12,17 +12,20 @@
 
 
 .input {
-  flex: 1;
-  padding: 10px;
+  /* flex: 1; */
+  font-size: 1.2rem;
+  padding: 6px 20px;
   border: none;
-  border-radius: 5px 0 0 5px;
+  outline: none;
+  border-radius: 1.4rem 0 0 1.4rem;
+  width: 30rem;
 }
 
 .button {
   background: #007bff;
   border: none;
-  border-radius: 0 5px 5px 0;
-  padding: 14px;
+  border-radius: 0 1.4rem 1.4rem 0;
+  padding: 12px 20px;
   cursor: pointer;
   color: white;
   display: flex;

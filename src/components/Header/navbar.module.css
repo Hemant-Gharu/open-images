@@ -1,13 +1,13 @@
 .navbar{
    height: 3rem;
    width: 100%;
-   /* background-color: rgb(212, 33, 182); */
    position: absolute;
    /* top: 5rem; */
    display: flex;
    align-items: center;
 }
 .logo{
-   margin-left: 2rem;
+   width: 11rem;
+   margin: 2rem 0 0 1.5rem;
    z-index: 1;
 }

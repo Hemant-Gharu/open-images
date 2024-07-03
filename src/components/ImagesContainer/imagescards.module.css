@@ -5,14 +5,23 @@
    justify-content: center;
 }
 
+.imageItem {
+   position: relative;
+}
 
 .imageItem img {
    display: block;
    width: 100%;
    height: auto;
-   position: relative;
+}
+.infinitescroll{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
 }
 .download{
-bottom: 1rem;
-right: 1rem;
+   position: absolute;
+bottom: 0.8rem;
+right: 0.8rem;
 }

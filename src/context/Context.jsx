@@ -11,14 +11,16 @@ export const ContextProvider = ({ children }) => {
    const [hasMore, setHasMore] = useState(true);
 
    const API_KEY = "HEXgRugcBuvlaoxcAQyixwQdZrjOmQoXwxuhMbv7yiD9tU6VDPGDemnH";
+
+   // fetch images
    useEffect(() => {
-      const fetchImages = async (page) => {
+      const fetchImages = async () => {
          if (search.trim() === "") {
             setImages([]); // Clear images if search is empty
             return;
          }
          try {
-            const response = await fetch(`https://api.pexels.com/v1/search?query=${search}&per_page=2&page=${page}`, {
+            const response = await fetch(`https://api.pexels.com/v1/search?query=${search}&per_page=5&page=${page}`, {
                headers: {
                   Authorization: API_KEY
                }
@@ -34,7 +36,8 @@ export const ContextProvider = ({ children }) => {
             setHasMore(false);
          }
       };
-      fetchImages(page);
+
+      fetchImages();
    }, [search, page]);
 
    //load more image on scroll
@@ -62,7 +65,7 @@ export const ContextProvider = ({ children }) => {
          console.error('Error downloading the image:', error);
          toast.error("Error downloading the image.");
       }
-   }
+   };
 
    //Toastify
    const handleToastify = () => {
@@ -77,10 +80,17 @@ export const ContextProvider = ({ children }) => {
          theme: "light",
          transition: Bounce,
       });
-   }
+   };
 
    return (
-      <context.Provider value={{ images, setSearch, fetchMoreImages, hasMore, handleDownloadImage, handleToastify }}>
+      <context.Provider
+         value={{
+            images,
+            setSearch,
+            fetchMoreImages,
+            hasMore,
+            handleDownloadImage,
+         }}>
          {children}
       </context.Provider>
    );

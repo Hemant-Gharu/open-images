@@ -5,12 +5,10 @@ import Button from 'react-bootstrap/Button';
 import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { InfinitySpin } from 'react-loader-spinner';
 
 const ImagesCards = () => {
    const { images, fetchMoreImages, hasMore, handleDownloadImage } = useImage();
-
-   console.log("images => ", images);
-
 
    return (
       <>
@@ -19,8 +17,14 @@ const ImagesCards = () => {
          dataLength={images.length} //This is important field to render the next data
          next={fetchMoreImages}
          hasMore={hasMore}
-         loader={<h4>Loading...</h4>}
-         endMessage={<p>No More Images</p>}>
+         loader={<InfinitySpin
+            visible={true}
+            width="200"
+            color="#4fa94d"
+            ariaLabel="infinity-spin-loading"
+            />}
+         endMessage={<p>No More Images</p>}
+         className={styles.infinitescroll}>
          <div className={styles.imageGrid}>
             {images.map(image => (
                <div key={uuidv4()} className={styles.imageItem}>
@@ -28,7 +32,6 @@ const ImagesCards = () => {
                      <img
                         src={image.src.medium}
                         alt={image.alt}
-                     // style={{ aspectRatio: `${image.width} / ${image.height}` }}
                      />
                   ) : (
                      <p>Image not available</p>
