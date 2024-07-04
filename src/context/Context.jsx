@@ -9,6 +9,7 @@ export const ContextProvider = ({ children }) => {
    const [search, setSearch] = useState("nature");
    const [page, setPage] = useState(1);
    const [hasMore, setHasMore] = useState(true);
+   const [loading, setLoading] = useState({});
 
    const API_KEY = "HEXgRugcBuvlaoxcAQyixwQdZrjOmQoXwxuhMbv7yiD9tU6VDPGDemnH";
 
@@ -48,6 +49,7 @@ export const ContextProvider = ({ children }) => {
    // Download Image
    const handleDownloadImage = async (url, imageName) => {
       try {
+         setLoading((prevLoading) => ({ ...prevLoading, [imageName]: true }));
          const response = await fetch(url);
          const blob = await response.blob();
          const blobUrl = window.URL.createObjectURL(blob);
@@ -58,12 +60,12 @@ export const ContextProvider = ({ children }) => {
          link.click();
          link.remove();
          window.URL.revokeObjectURL(blobUrl);
-
          handleToastify();
-
       } catch (error) {
          console.error('Error downloading the image:', error);
          toast.error("Error downloading the image.");
+      } finally {
+         setLoading((prevLoading) => ({ ...prevLoading, [imageName]: false }));
       }
    };
 
@@ -90,6 +92,7 @@ export const ContextProvider = ({ children }) => {
             fetchMoreImages,
             hasMore,
             handleDownloadImage,
+            loading
          }}>
          {children}
       </context.Provider>
