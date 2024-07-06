@@ -6,68 +6,61 @@ const FilterButtons = () => {
    const { setSearch } = useImage();
    const [activeFilter, setActiveFilter] = useState(null);
 
+   const handleFilterClick = (searchTerm) => {
+      setActiveFilter(searchTerm);
+      setSearch(searchTerm);
+   }
+
    return (
       <div className={styles.buttonContainer}>
          <button
-            value="All"
-            className={`${styles.button} ${activeFilter === "All" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("nature"); }}
-         >
+            className={`${styles.button} ${activeFilter === "nature" ? styles.active : ''}`}
+            onClick={() => handleFilterClick("nature")}>
             Nature
          </button>
          <button
-            value="Active"
-            className={`${styles.button} ${activeFilter === "Active" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("business") }}
-         >
+            className={`${styles.button} ${activeFilter === "business" ? styles.active : ''}`}
+            onClick={() => handleFilterClick("business")}>
             Business
          </button>
          <button
-            value="food"
             className={` ${styles.button} ${activeFilter === "food" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("food") }}>
+            onClick={() => handleFilterClick("food")}>
             Food
          </button>
          <button
-            value="technology"
             className={` ${styles.button} ${activeFilter === "technology" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("technology") }}>
+            onClick={() => handleFilterClick("technology")}>
             Technology
          </button>
          <button
-            value="travel"
             className={` ${styles.button} ${activeFilter === "travel" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("travel") }}>
+            onClick={() => handleFilterClick("travel")}>
             Travel
          </button>
          <button
-            value="fitness"
             className={` ${styles.button} ${activeFilter === "fitness" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("fitness") }}>
+            onClick={() => handleFilterClick("fitness")}>
             Fitness
          </button>
          <button
-            value="lifestyle"
             className={` ${styles.button} ${activeFilter === "lifestyle" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("lifestyle") }}>
+            onClick={() => handleFilterClick("lifestyle")}>
             Lifestyle
          </button>
          <button
-            value="fashion"
             className={` ${styles.button} ${activeFilter === "fashion" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("fashion") }}>
+            onClick={() => handleFilterClick("fashion")}>
             Fashion
          </button>
          <button
-            value="wedding"
             className={` ${styles.button} ${activeFilter === "wedding" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("wedding") }}>
+            onClick={() => handleFilterClick("wedding")}>
             Wedding
          </button>
          <button
-            value="family"
             className={` ${styles.button} ${activeFilter === "family" ? styles.active : ''}`}
-            onClick={(e) => { setActiveFilter(e.target.value); setSearch("family") }}>
+            onClick={() => handleFilterClick("family")}>
             Family
          </button>
       </div>

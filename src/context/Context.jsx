@@ -13,6 +13,11 @@ export const ContextProvider = ({ children }) => {
 
    const API_KEY = "HEXgRugcBuvlaoxcAQyixwQdZrjOmQoXwxuhMbv7yiD9tU6VDPGDemnH";
 
+   useEffect(()=>{
+      setImages([]);
+      setPage(1);
+   },[search]);
+
    // fetch images
    useEffect(() => {
       const fetchImages = async () => {
@@ -22,13 +27,11 @@ export const ContextProvider = ({ children }) => {
          }
          try {
             const response = await fetch(`https://api.pexels.com/v1/search?query=${search}&per_page=5&page=${page}`, {
-               headers: {
-                  Authorization: API_KEY
-               }
+               headers: { Authorization: API_KEY }
             });
             const data = await response.json();
             if (data.photos && data.photos.length > 0) {
-               setImages((prevImages) => [...prevImages, ...data.photos]);
+               setImages((prevImages) => page === 1 ? data.photos : [...prevImages, ...data.photos]);
             } else {
                setHasMore(false);
             }
