@@ -1,4 +1,49 @@
+/* src/components/imagescards.module.css */
+.infinitescroll {
+   padding: 20px;
+}
+
 .imageGrid {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 16px;
+}
+
+.imageItem {
+   flex: 1 1 calc(25% - 16px);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+   overflow: hidden;
+   position: relative;
+   cursor: pointer;
+}
+
+.image {
+   width: 100%;
+   height: auto;
+}
+
+.download {
+   position: absolute;
+   bottom: 10px;
+   right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .imageGrid {
    display: flex;
    flex-wrap: wrap;
    gap: 10px;
@@ -14,14 +59,16 @@
    width: 100%;
    height: auto;
 }
-.infinitescroll{
+
+.infinitescroll {
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
 }
-.download{
+
+.download {
    position: absolute;
-bottom: 0.8rem;
-right: 0.8rem;
-}
+   bottom: 0.8rem;
+   right: 0.8rem;
+} */

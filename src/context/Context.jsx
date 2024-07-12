@@ -6,7 +6,7 @@ export const useImage = () => useContext(context);
 
 export const ContextProvider = ({ children }) => {
    const [images, setImages] = useState([]);
-   const [search, setSearch] = useState("nature");
+   const [search, setSearch] = useState("travel");
    const [page, setPage] = useState(1);
    const [hasMore, setHasMore] = useState(true);
    const [loading, setLoading] = useState({});
