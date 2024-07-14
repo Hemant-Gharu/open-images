@@ -1,5 +1,5 @@
 /* src/components/imagescards.module.css */
-.infinitescroll {
+/* .infinitescroll {
    padding: 20px;
 }
 
@@ -27,7 +27,7 @@
    position: absolute;
    bottom: 10px;
    right: 10px;
-}
+} */
 
 
 
@@ -43,7 +43,7 @@
 
 
 
-/* .imageGrid {
+.imageGrid {
    display: flex;
    flex-wrap: wrap;
    gap: 10px;
@@ -71,4 +71,4 @@
    position: absolute;
    bottom: 0.8rem;
    right: 0.8rem;
-} */
+}
